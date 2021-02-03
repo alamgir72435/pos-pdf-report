@@ -707,6 +707,11 @@ linebreak@^0.3.0:
     brfs "^1.3.0"
     unicode-trie "^0.3.0"
 
+lodash@^4.17.10:
+  version "4.17.20"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
+  integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
+
 magic-string@0.25.1:
   version "0.25.1"
   resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.25.1.tgz#b1c248b399cd7485da0fe7385c2fc7011843266e"
@@ -1198,6 +1203,13 @@ vlq@^0.2.2:
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/vlq/-/vlq-0.2.3.tgz#8f3e4328cf63b1540c0d67e1b2778386f8975b26"
   integrity sha512-DRibZL6DsNhIgYQ+wNdWDL2SL3bKPlVrRiBqV5yuMm++op8W4kGFtaQfCs4KEJn0wBZcHVHJ3eoywX8983k1ow==
+
+voilab-pdf-table@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/voilab-pdf-table/-/voilab-pdf-table-0.5.0.tgz#bd10892c53bddf950470ca51e5a8ea38a3e07dfa"
+  integrity sha512-JdicQgamz0bvDVqIg8QoC2Is+6XCiwdeyx/XXnA5aCPS+/lhop4dujdNqqGs40gfRpGXfIffk+/aptMfwKIm0g==
+  dependencies:
+    lodash "^4.17.10"
 
 word-wrap@~1.2.3:
   version "1.2.3"

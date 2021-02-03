@@ -239,11 +239,20 @@ const makeSalesSummery = new Promise((resolve, reject) => {
   resolve();
 });
 
+app.get("/pdf", (req, res) => {
+  var pdf = require("./pdf/table").create();
+  pdf.pipe(res);
+  pdf.end();
+  console.log(123);
+});
+
 app.get("/", async (req, res) => {
   await makeSalesSummery;
   setTimeout(() => {
     res.sendFile(path.join(__dirname, "public", "report.pdf"));
   }, 100);
 });
+
+app.get("/");
 
 app.listen(5000, console.log(`Running`));
