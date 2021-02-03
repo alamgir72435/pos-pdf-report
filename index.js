@@ -25,6 +25,126 @@ const invoice = {
       quantity: 1,
       amount: 2000,
     },
+    {
+      item: "USB_EXT",
+      description: "USB Cable Extender",
+      quantity: 1,
+      amount: 2000,
+    },
+    {
+      item: "USB_EXT",
+      description: "USB Cable Extender",
+      quantity: 1,
+      amount: 2000,
+    },
+    {
+      item: "USB_EXT",
+      description: "USB Cable Extender",
+      quantity: 1,
+      amount: 2000,
+    },
+    {
+      item: "USB_EXT",
+      description: "USB Cable Extender",
+      quantity: 1,
+      amount: 2000,
+    },
+    {
+      item: "USB_EXT",
+      description: "USB Cable Extender",
+      quantity: 1,
+      amount: 2000,
+    },
+    {
+      item: "USB_EXT",
+      description: "USB Cable Extender",
+      quantity: 1,
+      amount: 2000,
+    },
+    {
+      item: "USB_EXT",
+      description: "USB Cable Extender",
+      quantity: 1,
+      amount: 2000,
+    },
+    {
+      item: "USB_EXT",
+      description: "USB Cable Extender",
+      quantity: 1,
+      amount: 2000,
+    },
+    {
+      item: "USB_EXT",
+      description: "USB Cable Extender",
+      quantity: 1,
+      amount: 2000,
+    },
+    {
+      item: "USB_EXT",
+      description: "USB Cable Extender",
+      quantity: 1,
+      amount: 2000,
+    },
+    {
+      item: "USB_EXT",
+      description: "USB Cable Extender",
+      quantity: 1,
+      amount: 2000,
+    },
+    {
+      item: "USB_EXT",
+      description: "USB Cable Extender",
+      quantity: 1,
+      amount: 2000,
+    },
+    {
+      item: "USB_EXT",
+      description: "USB Cable Extender",
+      quantity: 1,
+      amount: 2000,
+    },
+    {
+      item: "USB_EXT",
+      description: "USB Cable Extender",
+      quantity: 1,
+      amount: 2000,
+    },
+    {
+      item: "USB_EXT",
+      description: "USB Cable Extender",
+      quantity: 1,
+      amount: 2000,
+    },
+    {
+      item: "USB_EXT",
+      description: "USB Cable Extender",
+      quantity: 1,
+      amount: 2000,
+    },
+    {
+      item: "USB_EXT",
+      description: "USB Cable Extender",
+      quantity: 1,
+      amount: 2000,
+    },
+    {
+      item: "USB_EXT",
+      description: "USB Cable Extender",
+      quantity: 1,
+      amount: 2000,
+    },
+    {
+      item: "USB_EXT",
+      description: "USB Cable Extender",
+      quantity: 1,
+      amount: 2000,
+    },
+    {
+      item: "USB_EXT",
+      description: "USB Cable Extender",
+      quantity: 1,
+      amount: 2000,
+    },
   ],
   subtotal: 8000,
   paid: 0,
@@ -33,12 +153,13 @@ const invoice = {
 
 function generateInvoiceTable(doc, invoice) {
   let i,
-    invoiceTableTop = 330;
+    invoiceTableTop = 100;
 
   for (i = 0; i < invoice.items.length; i++) {
     const item = invoice.items[i];
     const position = invoiceTableTop + (i + 1) * 30;
     generateTableRow(
+      i,
       doc,
       position,
       item.item,
@@ -50,10 +171,10 @@ function generateInvoiceTable(doc, invoice) {
   }
 }
 
-function generateTableRow(doc, y, c1, c2, c3, c4, c5) {
+function generateTableRow(i, doc, y, c1, c2, c3, c4, c5) {
   doc
-    .fontSize(10)
-    .text(c1, 50, y)
+    .fontSize(14)
+    .text(`${i + 1} ${c1}`, 50, y)
     .text(c2, 150, y)
     .text(c3, 280, y, { width: 90, align: "right" })
     .text(c4, 370, y, { width: 90, align: "right" })
@@ -75,12 +196,6 @@ function generateCustomerInformation(doc, invoice) {
 }
 
 function generateHeader(doc) {
-  /*
-  doc
-    .moveTo(10, 40) // set the current point
-    .lineTo(600, 40) // draw a line
-    .stroke(); // stroke the path
-*/
   doc
     .fillColor("#444444")
     .fontSize(20)
@@ -96,25 +211,18 @@ function generateHeader(doc) {
     .fontSize(16)
     .text("০১৭৪২৯৯৮৬৭০,০১৮৭৫৩২৮৩০৫", 100, 75, { align: "center" })
     .moveDown();
-  // doc
-  //   .fillColor("#444444")
-  //   .fontSize(20)
-  //   .text("বাইনারি বুনন", 100, 40)
-  //   .fontSize(10)
-  //   .text("123 Main Street", 200, 40, { align: "right" })
-  //   .text("New York, NY, 10025", 200, 60, { align: "right" })
-  //   .moveDown();
+
+  doc
+    .moveTo(10, 100) // set the current point
+    .lineTo(600, 100) // draw a line
+    .fillOpacity(0.5)
+    .stroke(); // stroke the path
 }
 
 function generateFooter(doc) {
   doc
     .fontSize(10)
-    .text(
-      "Payment is due within 15 days. Thank you for your business.",
-      50,
-      780,
-      { align: "center", width: 500 }
-    );
+    .text("bainary Bunon.", 300, 700, { align: "center", width: 500 });
 }
 
 const makeSalesSummery = new Promise((resolve, reject) => {
@@ -124,8 +232,8 @@ const makeSalesSummery = new Promise((resolve, reject) => {
   // create Table
   generateHeader(doc);
   // generateCustomerInformation(doc, invoice);
-  // generateInvoiceTable(doc, invoice);
-  // generateFooter(doc);
+  generateInvoiceTable(doc, invoice);
+  generateFooter(doc);
 
   doc.end();
   resolve();
