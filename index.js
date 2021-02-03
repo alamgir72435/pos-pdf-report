@@ -78,10 +78,10 @@ function generateHeader(doc) {
   doc
     .fillColor("#444444")
     .fontSize(20)
-    .text("ACME Inc.", 110, 57)
+    .text("বাইনারি বুনন", 100, 50)
     .fontSize(10)
-    .text("123 Main Street", 200, 65, { align: "right" })
-    .text("New York, NY, 10025", 200, 80, { align: "right" })
+    .text("123 Main Street", 200, 40, { align: "right" })
+    .text("New York, NY, 10025", 200, 60, { align: "right" })
     .moveDown();
 }
 
@@ -115,14 +115,9 @@ const makeSalesSummery = new Promise((resolve, reject) => {
   generateHeader(doc);
   generateCustomerInformation(doc, invoice);
   generateInvoiceTable(doc, invoice);
-  generateFooter(doc);
-  // doc.text(
-  //   `
-  // সারা বিশ্বের বিস্ময় তুমি আমার অহংকার!
-  // এবং আমরা একটি সফটওয়্যার বানাচ্ছি !!!!!!`,
-  //   100,
-  //   100
-  // );
+  // generateFooter(doc);
+  // doc.rect(doc.x, 0, 10, doc.y).stroke();
+
   doc.end();
   resolve();
 });
