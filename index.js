@@ -75,25 +75,35 @@ function generateCustomerInformation(doc, invoice) {
 }
 
 function generateHeader(doc) {
+  /*
+  doc
+    .moveTo(10, 40) // set the current point
+    .lineTo(600, 40) // draw a line
+    .stroke(); // stroke the path
+*/
   doc
     .fillColor("#444444")
     .fontSize(20)
-    .text("বাইনারি বুনন", 100, 50)
-    .fontSize(10)
-    .text("123 Main Street", 200, 40, { align: "right" })
-    .text("New York, NY, 10025", 200, 60, { align: "right" })
+    .text("মেসার্স সিয়াম এন্টারপ্রাইজ", 100, 30, { align: "center" })
     .moveDown();
-}
-
-function generateFooter(doc) {
   doc
-    .fontSize(10)
-    .text(
-      "Payment is due within 15 days. Thank you for your business.",
-      50,
-      780,
-      { align: "center", width: 500 }
-    );
+    .fillColor("#444444")
+    .fontSize(16)
+    .text("মাদ্রাসা রোড, শিবপুর,নরসিংদী", 100, 55, { align: "center" })
+    .moveDown();
+  doc
+    .fillColor("#444444")
+    .fontSize(16)
+    .text("০১৭৪২৯৯৮৬৭০,০১৮৭৫৩২৮৩০৫", 100, 75, { align: "center" })
+    .moveDown();
+  // doc
+  //   .fillColor("#444444")
+  //   .fontSize(20)
+  //   .text("বাইনারি বুনন", 100, 40)
+  //   .fontSize(10)
+  //   .text("123 Main Street", 200, 40, { align: "right" })
+  //   .text("New York, NY, 10025", 200, 60, { align: "right" })
+  //   .moveDown();
 }
 
 function generateFooter(doc) {
@@ -113,10 +123,9 @@ const makeSalesSummery = new Promise((resolve, reject) => {
   doc.font("fonts/kalpurush.ttf").fontSize(14);
   // create Table
   generateHeader(doc);
-  generateCustomerInformation(doc, invoice);
-  generateInvoiceTable(doc, invoice);
+  // generateCustomerInformation(doc, invoice);
+  // generateInvoiceTable(doc, invoice);
   // generateFooter(doc);
-  // doc.rect(doc.x, 0, 10, doc.y).stroke();
 
   doc.end();
   resolve();
