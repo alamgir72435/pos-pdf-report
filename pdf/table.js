@@ -22,39 +22,68 @@ module.exports = {
         })
       )
       // set defaults to your columns
-      .setColumnsDefaults({
-        headerBorder: "B",
-        align: "right",
-      })
+      // .setColumnsDefaults({
+      //   headerBorder: "B",
+      //   align: "right",
+      // })
       // add table columns
       .addColumns([
         {
           id: "description",
           header: "তারিখ",
-          align: "left",
-          align: "center",
+          width: 100,
         },
         {
           id: "quantity",
-          header: "ইনভয়েস নাম্বার",
-          width: 100,
+          header: "ইনভয়েস নং",
+          width: 130,
           align: "center",
         },
         {
           id: "price",
           header: "ক্রেতার নাম",
-          width: 100,
+          width: 70,
+          align: "center",
+        },
+        {
+          id: "phone",
+          header: "ফোন",
+          width: 70,
+          align: "center",
+        },
+        {
+          id: "address",
+          header: "ফোন",
+          width: 70,
+          align: "center",
+        },
+        {
+          id: "totalAmount",
+          header: "ফোন",
+          width: 70,
+          align: "center",
+        },
+        {
+          id: "discount",
+          header: "ডিসকাউন্ট",
+          width: 70,
           align: "center",
         },
         {
           id: "total",
-          header: "Total",
+          header: "মোট",
+          width: 70,
           align: "center",
-          width: 200,
-          renderer: function (tb, data) {
-            return "CHF " + data.total;
-          },
         },
+        // {
+        //   id: "total",
+        //   header: "Total",
+        //   align: "center",
+        //   width: 200,
+        //   renderer: function (tb, data) {
+        //     return "CHF " + data.total;
+        //   },
+        // },
       ])
       // add events (here, we draw headers on each new page)
       .onPageAdded(function (tb) {
@@ -66,12 +95,26 @@ module.exports = {
 
     // draw content, by passing data to the addBody method
     table.addBody([
-      { description: "Product 1", quantity: 1, price: 20.1, total: 20.1 },
-      { description: "Product 2", quantity: 4, price: 4.0, total: 16.0 },
-      { description: "Product 3", quantity: 2, price: 17.85, total: 35.7 },
-      { description: "Product 3", quantity: 2, price: 17.85, total: 35.7 },
-      { description: "Product 3", quantity: 2, price: 17.85, total: 35.7 },
-      { description: "Product 3", quantity: 2, price: 17.85, total: 35.7 },
+      {
+        description: "12.12.12",
+        quantity: 1,
+        price: 13,
+        phone: "019829292",
+        address: "ok",
+        totalAmount: 0,
+        discount: 12,
+        total: 20.1,
+      },
+      {
+        description: "12.22.33",
+        quantity: 4,
+        price: 13,
+        phone: "019829292",
+        address: "ok",
+        totalAmount: 0,
+        discount: 12,
+        total: 16.0,
+      },
     ]);
 
     return pdf;
