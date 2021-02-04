@@ -4,12 +4,15 @@ var PdfTable = require("voilab-pdf-table"),
 module.exports = {
   create: function () {
     // create a PDF from PDFKit, and a table from PDFTable
+
     var pdf = new PdfDocument({
         autoFirstPage: false,
       }),
       table = new PdfTable(pdf, {
         bottomMargin: 30,
       });
+
+    pdf.font("fonts/kalpurush.ttf").fontSize(14);
 
     table
       // add some plugins (here, a 'fit-to-width' for a column)
@@ -27,22 +30,26 @@ module.exports = {
       .addColumns([
         {
           id: "description",
-          header: "Product",
+          header: "তারিখ",
           align: "left",
+          align: "center",
         },
         {
           id: "quantity",
-          header: "Quantity",
-          width: 50,
+          header: "ইনভয়েস নাম্বার",
+          width: 100,
+          align: "center",
         },
         {
           id: "price",
-          header: "Price",
-          width: 40,
+          header: "ক্রেতার নাম",
+          width: 100,
+          align: "center",
         },
         {
           id: "total",
           header: "Total",
+          align: "center",
           width: 200,
           renderer: function (tb, data) {
             return "CHF " + data.total;
